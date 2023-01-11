@@ -1,0 +1,161 @@
+else if (AutoInstaller.SelectedIndex == 0)
+                {
+
+
+                    GameCoreToolkit toolkit = new(".minecraft");
+
+                    var id = (DownloadList.SelectedItem as GameCoreEmtity).Id;
+                    Label1.Content = "当前下载版本：" + id;
+
+                    await Task.Run(async () =>
+                    {
+                        GameCoreInstaller coreInstaller = new(toolkit, id);
+
+
+
+                        await Dispatcher.BeginInvoke(new Action(async delegate
+                        {
+
+
+
+
+                            await Task.Run(async () =>
+                            {
+                                var coreres = await coreInstaller.InstallAsync(async x =>
+                                {
+                                    await Dispatcher.BeginInvoke(new Action(async delegate
+                                    {
+
+                                        DownloadTB.Text += (x.Item2.ToString()) + "\n";
+                                        progress.Content = (float.Parse(x.Item1.ToString())) * 100 + "%";
+                                        DownloadTB.ScrollToEnd();
+                                    }));
+                                });
+
+                                //游戏资源补全安装模块
+                                ResourceInstaller installer = new(coreres.GameCore);
+                                await installer.DownloadAsync(async (x, c) =>
+                                {
+                                    await Dispatcher.BeginInvoke(new Action(async delegate
+                                    {
+                                        DownloadTB.Text += (x.ToString()) + "\n";
+                                        progress.Content = float.Parse(c.ToString()) * 100 + "%";
+                                        //在这里获取当前资源补全进度,利用c获取数字进度,x获取文字进度
+                                    }));
+                                    //安装的方法
+                                });
+                                
+                            });
+                            await Dispatcher.BeginInvoke(new Action(async delegate
+                            {
+                                Label1.Content = "当前无下载任务";
+                            }));
+                            MessageBox.Show("下载完成！");
+
+
+                        }));
+                    });
+                   
+
+
+                }
+                else if (AutoInstaller.SelectedIndex == 1)
+                {
+                    var id = (DownloadList.SelectedItem as GameCoreEmtity).Id;
+                    Label1.Content = "当前下载版本：" + id;
+                    GameCoreToolkit toolkit = new(".minecraft");
+                    var i = await ForgeInstaller.GetForgeBuildsOfVersionAsync(id);
+                    string[] line = File.ReadAllLines(@"ECL2.2_Datas\javaCombo_Data.txt");
+                    string JavaPaths = line[0];
+                    
+                    await Task.Run(async () =>
+                    {
+                        ForgeInstaller forgeInstaller = new(toolkit, i.First(), JavaPaths);
+
+                        await forgeInstaller.InstallAsync(async x =>
+                    {
+                        await Dispatcher.BeginInvoke(new Action(async delegate
+                        {
+                            DownloadTB.Text += (x.Item2.ToString()) + "\n";
+                            progress.Content = float.Parse(x.Item1.ToString()) * 100 + "%";
+                            DownloadTB.ScrollToEnd();
+                        }));
+                       
+
+                    });
+                        await Dispatcher.BeginInvoke(new Action(async delegate
+                        {
+                            Label1.Content = "当前无下载任务";
+                        }));
+                        MessageBox.Show("下载完成！");
+
+                    });
+
+
+                }
+                else if (AutoInstaller.SelectedIndex == 2)
+                {
+                    var id = (DownloadList.SelectedItem as GameCoreEmtity).Id;
+                    Label1.Content = "当前下载版本：" + id;
+                    GameCoreToolkit toolkit = new(".minecraft");
+                    var i = await FabricInstaller.GetFabricBuildsByVersionAsync(id);
+                   
+                    await Task.Run(async () =>
+                    {
+                        FabricInstaller fabricInstaller = new(toolkit, i.First());
+
+                        await fabricInstaller.InstallAsync(async x =>
+                        {
+                            await Dispatcher.BeginInvoke(new Action(async delegate
+                            {
+                                DownloadTB.Text += (x.Item2.ToString()) + "\n";
+                                progress.Content = Convert.ToDouble(x.Item1.ToString()) * 100 + "%";
+                                DownloadTB.ScrollToEnd();
+                            }));
+
+                        });
+                        await Dispatcher.BeginInvoke(new Action(async delegate
+                        {
+                            Label1.Content = "当前无下载任务";
+                        }));
+                        MessageBox.Show("下载完成！");
+
+                    });
+
+
+                }
+                else if (AutoInstaller.SelectedIndex == 3)
+                    {
+                    var id = (DownloadList.SelectedItem as GameCoreEmtity).Id;
+                    Label1.Content = "当前下载版本：" + id;
+                    GameCoreToolkit toolkit = new(".minecraft");
+                    var i = await QuiltInstaller.GetQuiltBuildsByVersionAsync(id);
+                    
+                    string[] line = File.ReadAllLines(@"ECL2.2_Datas\javaCombo_Data.txt");
+                    string JavaPaths = line[0];
+                    await Task.Run(async () =>
+                    {
+                        QuiltInstaller quiltInstaller = new(toolkit, i.First());
+
+                        await quiltInstaller.InstallAsync(async x =>
+                        {
+                            await Dispatcher.BeginInvoke(new Action(async delegate
+                            {
+                                DownloadTB.Text += (x.Item2.ToString()) + "\n";
+                                progress.Content =float.Parse(x.Item1.ToString()) * 100 + "%";
+                                DownloadTB.ScrollToEnd();
+                            }));
+
+                        });
+                        await Dispatcher.BeginInvoke(new Action(async delegate
+                        {
+                            Label1.Content = "当前无下载任务";
+                         }));
+                    MessageBox.Show("下载完成！");
+
+                    });
+
+
+
+                }
+            

@@ -1,0 +1,70 @@
+﻿<Window x:Class="ECL2._2.MessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ECL2._2"
+       mc:Ignorable="d"
+        Title="MessageBox" 
+        AllowsTransparency="True"
+        
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        Width="600"
+        Height="260"
+        WindowStyle="None"
+        Closing="Window_Closing">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="20" UseAeroCaptionButtons="False"></WindowChrome>
+    </WindowChrome.WindowChrome>
+    <Viewbox>
+        <Grid Width="600" Height="260">
+            <Border  x:Name="B1"  Margin="3" Background="White"    >
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid Margin="20">
+                    <TextBlock x:Name="TB_Context" Margin="0,0,0,40" Text="内容"  HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="18"  Foreground="Gray"/>
+                    <Button VerticalAlignment="Bottom"   Content="取消"  Tag="No"  Margin="-174,0,0,0" Height="64" Width="144"  Click="No_Button_Click"  Cursor="Hand" >
+                        <Button.Template>
+                            <ControlTemplate  TargetType="{x:Type Button}">
+                                <Border Name="Border" Background="White"  BorderBrush="#cccccc"  >
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.2"/>
+                                    </Border.Effect>
+                                    <TextBlock   Text="{TemplateBinding Content}"  FontSize="24"    Foreground="Gray"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    </TextBlock>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button VerticalAlignment="Bottom"    Content="确定"  Tag="Yes"   Margin="174,0,0,0" Height="64" Width="144"  Click="Yes_Button_Click" Cursor="Hand">
+                        <Button.Template>
+                            <ControlTemplate  TargetType="{x:Type Button}">
+                                <Border Name="Border" Background="Gray"  >
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.2"/>
+                                    </Border.Effect>
+                                    <TextBlock  Text="{TemplateBinding Content}"  FontSize="24"    Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    </TextBlock>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="B3" Background="#00000000" Foreground="Black" BorderBrush="#00000000" Width="30" Content="✕" Height="30"  WindowChrome.IsHitTestVisibleInChrome="True" Click="B3_Click" Margin="543,-20,-19,204">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="1" CornerRadius="10" MouseLeave="Border_MouseLeave" MouseMove="Border_MouseMove">
+                                    <Border.Background>#00000000</Border.Background>
+                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Window>

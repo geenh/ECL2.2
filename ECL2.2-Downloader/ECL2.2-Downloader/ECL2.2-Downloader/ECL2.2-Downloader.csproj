@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>ECL2._2_Downloader</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>a1dsu-o82am-001.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="a1dsu-o82am-001.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MinecraftLaunch" Version="1.6.0" />
+    <PackageReference Include="Natsurainko.FluentCore.Extension.Windows" Version="2.0.3" />
+  </ItemGroup>
+
+</Project>

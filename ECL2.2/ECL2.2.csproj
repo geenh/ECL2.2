@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
+    <RootNamespace>ECL2._2</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>ECL2.2_Newlogo.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <PackageIcon>ECL2_logo.png</PackageIcon>
+    <StartupObject></StartupObject>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
+	  <Version>0.8.4</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="3.1 设置.png" />
+    <None Remove="30应用程序-线性.png" />
+    <None Remove="Content\microsoft.png" />
+    <None Remove="Content\UserPages\microsoft.png" />
+    <None Remove="Content\用户-圆.png" />
+    <None Remove="ECL2.2_Newlogo.png" />
+    <None Remove="ECL2_logo.png" />
+    <None Remove="下载.png" />
+    <None Remove="游戏.png" />
+    <None Remove="用户-圆.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ECL2.2_Newlogo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\ECL2\ECL2_logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MinecraftLaunch" Version="1.7.0-preview2" />
+    <PackageReference Include="MinecraftOAuth" Version="1.7.0" />
+    <PackageReference Include="Natsurainko.FluentCore.Extension.Windows" Version="2.0.3" />
+    <PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.20110.1" />
+    <PackageReference Include="UpdateD" Version="1.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="3.1 设置.png" />
+    <Resource Include="30应用程序-线性.png" />
+    <Resource Include="Content\microsoft.png" />
+    <Resource Include="Content\UserPages\microsoft.png" />
+    <Resource Include="Content\用户-圆.png" />
+    <Resource Include="ECL2.2_Newlogo.png" />
+    <Resource Include="ECL2_logo.png" />
+    <Resource Include="下载.png" />
+    <Resource Include="游戏.png" />
+    <Resource Include="用户-圆.png" />
+  </ItemGroup>
+
+</Project>

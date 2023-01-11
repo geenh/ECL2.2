@@ -1,0 +1,52 @@
+﻿<Page x:Name="Setting_Page" x:Class="ECL2._2.Content.Setting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ECL2._2.Content"
+      mc:Ignorable="d" 
+      d:DesignHeight="535" d:DesignWidth="700"
+      Title="Setting">
+
+    <Grid x:Name="Grid2" Background="#212529">
+
+        <TabControl x:Name="TC1" Background="#212529">
+            <TabItem Width="120" Height="50" RenderTransformOrigin="0.508,0.6" Margin="170,0,-170,0"  Name="tabItem1">
+                <TabItem.Header>
+                    <Label Content="Java设置"  FontSize="18"
+                MouseLeftButtonDown="tabItem1_Clicked" 
+                HorizontalAlignment="Stretch"/>
+                </TabItem.Header>
+                <ContentControl x:Name="ContentControl1" Height="465" Width="700"/>
+            </TabItem>
+
+            <TabItem Width="120" Height="50" RenderTransformOrigin="0.477,0.465" Margin="170,1,-170,-1" Name="tabItem2">
+                <TabItem.Header>
+                    <Label Content="启动器设置" FontSize="18"
+                MouseLeftButtonDown="tabItem2_Clicked" 
+                HorizontalAlignment="Stretch"/>
+                </TabItem.Header>
+                <ContentControl x:Name="ContentControl2" Height="465" Width="700"/>
+            </TabItem>
+
+            <TabItem Width="120" Height="50" RenderTransformOrigin="0.472,0.431" Margin="169,1,-169,-1"  Name="tabItem3">
+                <TabItem.Header>
+                    <Label Content="杂项" FontSize="18"
+                MouseLeftButtonDown="tabItem3_Clicked" 
+                HorizontalAlignment="Stretch"/>
+                </TabItem.Header>
+                <ContentControl x:Name="ContentControl3" Height="465" Width="700"/>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="button1" Height="40" Margin="10,485,557,10" Content="删除所有数据" FontSize="18" Background="#FFFD5C5C" BorderBrush="#FF888888" Foreground="White" Click="Button_Click_2">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="1" CornerRadius="10" MouseMove="Border_MouseMove" MouseLeave="Border_MouseLeave">
+                        <Border.Background>#FFFD5C5C</Border.Background>
+                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Page>
