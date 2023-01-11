@@ -1,7 +1,0 @@
-
-
-lang:zh_cn
-
-forceUnicodeFont:true
-
-fullscreen:false
